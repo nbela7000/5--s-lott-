@@ -1,0 +1,77 @@
+tipp=new Array(5);
+db=0;
+s="";
+szamok=new Array(90);
+for (i=0; i<90;i++)szamok[i]=i+1;
+var talalat=new Array(5);
+for (i=0; i<5; i++)talalat[i]=0;
+function csere()
+{
+for (i=0; i<10000; i++)
+{
+x=Math.floor(Math.random()*90);
+y=Math.floor(Math.random()*90);
+sv=szamok[x];szamok[x]=szamok[y];
+szamok[y]=sv;
+}
+document.getElementById('ellen').style.display="none";
+}
+function betesz()
+{
+document.getElementById('a').value=szamok[0];document.getElementById('b').value=szamok[1];
+
+document.getElementById('c').value=szamok[2];document.getElementById('d').value=szamok[3];
+document.getElementById('e').value=szamok[4];document.getElementById('a').style.background="url('gomb2.png')";
+document.getElementById('b').style.background="url('gomb2.png')";document.getElementById('c').style.background="url('gomb2.png')";
+document.getElementById('d').style.background="url('gomb2.png')";document.getElementById('e').style.background="url('gomb2.png')";
+document.getElementById('ellen').style.display="block";document.getElementById('sors').style.display="none";
+document.getElementById('k1').disabled="disabled";document.getElementById('k2').disabled="disabled";
+document.getElementById('k3').disabled="disabled";document.getElementById('k4').disabled="disabled";
+document.getElementById('k5').disabled="disabled";
+}
+function tippel(){tipp[0]=document.getElementById('k1').value;
+tipp[1]=document.getElementById('k2').value;tipp[2]=document.getElementById('k3').value;
+tipp[3]=document.getElementById('k4').value;tipp[4]=document.getElementById('k5').value;}function ellenoriz(){tippel();
+//alert(tipp[0]);for (i=0; i<5;i++)for (j=0; j<5;j++)if(szamok[i]==tipp[j]){db++;talalat[db]=szamok[i];
+}
+for (i=0; i<5;i++)if (talalat[i]!=0)s=s+talalat[i]+' ';
+if(s=="")document.getElementById('eredmeny').innerHTML="Nincs találat!";elsedocument.getElementById('eredmeny').innerHTML="Találatok: " +s;
+}
+style.ccs:body{background: url('kozep.png');
+color: white;font-family: Verdana;
+}
+#bg{position:absolute;
+top:150px;
+left:250px;
+padding: 20px;
+margin:20px;
+margin-top: 10px;
+width: 450px;
+height: 300px;
+background-color: #375221;float: left;-moz-border-radius: 15px;
+}
+.sajat
+{
+text-align: center;border: none;background: url('gomb1.png');
+width: 80px;
+height: 80px;
+font-size: 20px;
+color: yellow;
+}
+.sorsolt
+{
+text-align: center;
+border: none;background: url('gomb2.png');
+width: 80px;
+height: 80px;
+font-size: 20px;
+color: yellow;
+}
+#s1{font-size: 50px;
+color: green;
+}
+#ujra{background-image: url('ujjatek.png');
+width: 100px;
+height: 50px;
+}
+#sors
